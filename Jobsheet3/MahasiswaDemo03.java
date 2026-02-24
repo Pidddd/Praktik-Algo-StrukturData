@@ -7,7 +7,7 @@ public class MahasiswaDemo03 {
         Scanner sc = new Scanner(System.in);
         Mahasiswa03[] arrayOfMahasiswa = new Mahasiswa03[3];
         String dummy;
-        
+
         for (int i = 0; i < arrayOfMahasiswa.length; i++) {
             arrayOfMahasiswa[i] = new Mahasiswa03();
 
@@ -24,13 +24,8 @@ public class MahasiswaDemo03 {
             System.out.println("--------------------------------------");
         }
 
-        for (int i = 0; i < arrayOfMahasiswa.length; i++) {
-            System.out.println("Data mahasiswa ke-" + (i + 1));
-            System.out.println("NIM     : " + arrayOfMahasiswa[i].nim);
-            System.out.println("Nama    : " + arrayOfMahasiswa[i].nama);
-            System.out.println("Kelas   : " + arrayOfMahasiswa[i].kelas);
-            System.out.println("IPK     : " + arrayOfMahasiswa[i].ipk);
-            System.out.println("--------------------------------------");
+        for (int i = 0; i < 3; i++) {
+            arrayOfMahasiswa[i].cetakInfo();
         }
         sc.close();
     }
