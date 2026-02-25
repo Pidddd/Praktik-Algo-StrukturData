@@ -18,8 +18,8 @@ public class DosenDemo03 {
             String jk = sc.nextLine();
             System.out.print("Usia          : ");
             int usia = sc.nextInt();
-            sc.nextLine(); 
-            
+            sc.nextLine();
+
             // Inisialisasi objek ke array
             daftarDosen[i] = new Dosen03(kode, nama, jk, usia);
             System.out.println("--------------------------------");
@@ -38,6 +38,15 @@ public class DosenDemo03 {
             System.out.println("--------------------------------");
             counter++;
         }
+
+        // Memanggil method dari DataDosen03
+        DataDosen03 dataObj = new DataDosen03();
+        dataObj.dataSemuaDosen(daftarDosen);
+        System.out.println("\n======= ANALISIS DATA =======");
+        dataObj.jumlahDosenPerJenisKelamin(daftarDosen);
+        dataObj.rerataUsiaDosenPerJenisKelamin(daftarDosen);
+        dataObj.infoDosenPalingTua(daftarDosen);
+        dataObj.infoDosenPalingMuda(daftarDosen);
         sc.close();
     }
 }
