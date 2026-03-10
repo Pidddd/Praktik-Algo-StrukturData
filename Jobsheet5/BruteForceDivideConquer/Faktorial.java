@@ -3,8 +3,11 @@ package Jobsheet5.BruteForceDivideConquer;
 public class Faktorial {
     int faktorialBF(int n) {
         int faktorial = 1;
-        for (int i = 1; i <= n; i++) {
+        int i = 1;
+
+        while (i <= n) {
             faktorial = faktorial * i;
+            i++;
         }
         return faktorial;
     }
