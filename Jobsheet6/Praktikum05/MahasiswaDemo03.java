@@ -1,30 +1,44 @@
 package Jobsheet6.Praktikum05;
 
+import java.util.Scanner;
+
 public class MahasiswaDemo03 {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         MahasiswaBerprestasi03 list = new MahasiswaBerprestasi03();
-        
-        Mahasiswa03 m1 = new Mahasiswa03("123", "Zicco", "2A", 3.2);
-        Mahasiswa03 m2 = new Mahasiswa03("124", "Akbar", "2A", 3.5);
-        Mahasiswa03 m3 = new Mahasiswa03("125", "Daffa", "2A", 3.1);
-        Mahasiswa03 m4 = new Mahasiswa03("126", "Zulfikar", "2A", 3.9);
-        Mahasiswa03 m5 = new Mahasiswa03("127", "Repan", "2A", 3.7);
 
-        list.tambah(m1);
-        list.tambah(m2);
-        list.tambah(m3);
-        list.tambah(m4);
-        list.tambah(m5);
+        System.out.println("=== Masukkan Data Mahasiswa ===");
+        // Karena array di MahasiswaBerprestasi maksimal 5, kita loop 5 kali
+        for (int i = 0; i < list.listMhs.length; i++) {
+            System.out.println("Data Mahasiswa ke-" + (i + 1));
 
-        System.out.println("Data mahasiswa sebelum sorting: ");
+            System.out.print("NIM   : ");
+            String nim = sc.nextLine();
+
+            System.out.print("Nama  : ");
+            String nama = sc.nextLine();
+
+            System.out.print("Kelas : ");
+            String kelas = sc.nextLine();
+
+            System.out.print("IPK   : ");
+            double ipk = sc.nextDouble();
+            sc.nextLine();
+
+            System.out.println("-------------------------");
+
+            // Membuat objek Mahasiswa03 baru dan menambahkannya ke list
+            Mahasiswa03 m = new Mahasiswa03(nim, nama, kelas, ipk);
+            list.tambah(m);
+        }
+
+        System.out.println("\n--- Data mahasiswa sebelum sorting ---");
         list.tampil();
 
-        System.out.println("Data Mahasiswa setelah sorting berdasarkan IPK (DESC): ");
+        System.out.println("\n--- Data Mahasiswa setelah sorting BUBBLE SORT berdasarkan IPK (DESC) ---");
         list.bubbleSort();
         list.tampil();
 
-        System.out.println("Data yang sudah terurut menggunakan SELECTION SORT (ASC): ");
-        list.selectionSort();
-        list.tampil();
+        sc.close();
     }
 }
