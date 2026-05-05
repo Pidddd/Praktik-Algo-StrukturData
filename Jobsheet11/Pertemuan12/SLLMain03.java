@@ -6,7 +6,9 @@ public class SLLMain03 {
     public static void main(String[] args) {
         SingleLinkedList03 sll = new SingleLinkedList03();
         Scanner sc = new Scanner(System.in); 
-
+        char pilih;
+        
+        do{
         System.out.println("=== Tambah Data Mahasiswa ===");
         System.out.print("Masukkan NIM   : ");
         String nim = sc.nextLine();
@@ -25,6 +27,11 @@ public class SLLMain03 {
 
         // Tambahkan ke dalam Linked List (misal ditaruh di paling belakang)
         sll.addLast(mhsBaru);
+
+        System.out.print("Apakah ingin menambahkan data lagi? (y/n): ");
+        pilih = sc.next().charAt(0);
+        sc.nextLine();
+        } while (pilih == 'y' || pilih == 'Y');
 
         System.out.println("\nData setelah ditambahkan:");
         sll.print(); 
