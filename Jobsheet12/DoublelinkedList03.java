@@ -40,7 +40,7 @@ public class DoublelinkedList03 {
         while (current != null && !current.data.nim.equals(keyNim)) {
             current = current.next;
         }
-        
+
         if (current == null) {
             System.out.println("Data dengan NIM " + keyNim + " tidak ditemukan.");
             return;
@@ -48,11 +48,11 @@ public class DoublelinkedList03 {
 
         Node03 newNode = new Node03(data);
         // jika current adalah tail, node baru ditambahkan di akhir
-        if (current == tail){
+        if (current == tail) {
             newNode.prev = current;
             current.next = newNode;
             tail = newNode;
-        } else { 
+        } else {
             newNode.prev = current;
             newNode.next = current.next;
             current.next.prev = newNode;
@@ -75,27 +75,44 @@ public class DoublelinkedList03 {
         }
     }
 
-    // Placeholder method agar tidak error di menu Main, 
-    public void removeFirst() {
-        System.out.println("Method removeFirst belum diimplementasikan.");
-    }
-
-    public void removeLast() {
-        System.out.println("Method removeLast belum diimplementasikan.");
-    }
-
     // Tambahan Method untuk no 6
     public void printReverse() {
         if (isEmpty()) {
             System.out.println("Linked List masih kosong.");
             return;
         }
-        
+
         Node03 current = tail;
         while (current != null) {
             current.data.tampil();
             System.out.println();
             current = current.prev;
+        }
+    }
+
+    public void removeFirst() {
+        if (isEmpty()) {
+            System.out.println("Linked List kosong.");
+            return;
+        }
+        if (head == tail) {
+            head = tail = null;
+        } else {
+            head = head.next;
+            head.prev = null;
+        }
+    }
+
+    public void removeLast() {
+        if (isEmpty()) {
+            System.out.println("Linked List kosong.");
+            return;
+        }
+        if (head == tail) {
+            head = tail = null;
+        } else {
+            tail = tail.prev;
+            tail.next = null;
         }
     }
 }
