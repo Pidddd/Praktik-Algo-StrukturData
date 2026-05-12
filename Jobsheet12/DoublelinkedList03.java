@@ -95,12 +95,20 @@ public class DoublelinkedList03 {
             System.out.println("Linked List kosong.");
             return;
         }
+
+        // Simpan data sebelum dihapus
+        Mahasiswa03 dataDihapus = head.data;
+
         if (head == tail) {
             head = tail = null;
         } else {
             head = head.next;
             head.prev = null;
         }
+
+        // Tampilkan data yang dihapus
+        System.out.println("Data berhasil dihapus:");
+        dataDihapus.tampil();
     }
 
     public void removeLast() {
@@ -108,11 +116,19 @@ public class DoublelinkedList03 {
             System.out.println("Linked List kosong.");
             return;
         }
+
+        // Simpan data sebelum dihapus
+        Mahasiswa03 dataDihapus = tail.data;
+
         if (head == tail) {
             head = tail = null;
         } else {
             tail = tail.prev;
             tail.next = null;
         }
+
+        // Tampilkan data yang dihapus
+        System.out.println("Data berhasil dihapus:");
+        dataDihapus.tampil();
     }
 }
