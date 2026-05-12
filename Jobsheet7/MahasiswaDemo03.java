@@ -5,7 +5,11 @@ import java.util.Scanner;
 public class MahasiswaDemo03 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        MahasiswaBerprestasi03 list = new MahasiswaBerprestasi03();
+        System.out.print("Masukkan jumlah mahasiswa: ");
+        int jumlah = sc.nextInt();
+        sc.nextLine();
+
+        MahasiswaBerprestasi03 list = new MahasiswaBerprestasi03(jumlah);
 
         System.out.println("=== Masukkan Data Mahasiswa ===");
         for (int i = 0; i < list.listMhs.length; i++) {

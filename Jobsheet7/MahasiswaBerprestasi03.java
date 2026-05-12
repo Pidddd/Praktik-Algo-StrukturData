@@ -1,8 +1,13 @@
 package Jobsheet7;
 
 public class MahasiswaBerprestasi03 {
-    Mahasiswa03[] listMhs = new Mahasiswa03[5];
+    Mahasiswa03[] listMhs; // arraynya jadi tidak langsung diinisialisasikan
     int idx;
+
+    // Tambahkan konstruktor untuk mengatur ukuran array saat objek dibuat
+    MahasiswaBerprestasi03(int jumMhs) {
+        listMhs = new Mahasiswa03[jumMhs];
+    }
 
     void tambah(Mahasiswa03 m) {
         if (idx < listMhs.length) {
