@@ -83,4 +83,19 @@ public class DoublelinkedList03 {
     public void removeLast() {
         System.out.println("Method removeLast belum diimplementasikan.");
     }
+
+    // Tambahan Method untuk no 6
+    public void printReverse() {
+        if (isEmpty()) {
+            System.out.println("Linked List masih kosong.");
+            return;
+        }
+        
+        Node03 current = tail;
+        while (current != null) {
+            current.data.tampil();
+            System.out.println();
+            current = current.prev;
+        }
+    }
 }
