@@ -166,4 +166,75 @@ public class BinaryTree03 {
             }
         }
     }
+
+    // ==========================================
+    // TUGAS 1: Menambahkan node dengan cara rekursif
+    // ==========================================
+    public void addRekursif(Mahasiswa03 data) {
+        root = addRekursifHelper(root, data);
+    }
+
+    private Node03 addRekursifHelper(Node03 current, Mahasiswa03 data) {
+        if (current == null) {
+            return new Node03(data);
+        }
+        
+        if (data.ipk < current.mahasiswa.ipk) {
+            current.left = addRekursifHelper(current.left, data);
+        } else if (data.ipk > current.mahasiswa.ipk) {
+            current.right = addRekursifHelper(current.right, data);
+        }
+        
+        return current;
+    }
+
+    // ==========================================
+    // TUGAS 2: Menampilkan mahasiswa dengan IPK terkecil dan terbesar
+    // ==========================================
+    public void cariMinIPK() {
+        if (isEmpty()) {
+            System.out.println("Tree masih kosong.");
+            return;
+        }
+        Node03 current = root;
+        // IPK terkecil selalu ada di ujung paling kiri tree
+        while (current.left != null) {
+            current = current.left;
+        }
+        System.out.println("Mahasiswa dengan IPK Terkecil:");
+        current.mahasiswa.tampilInformasi();
+    }
+
+    public void cariMaxIPK() {
+        if (isEmpty()) {
+            System.out.println("Tree masih kosong.");
+            return;
+        }
+        Node03 current = root;
+        // IPK terbesar selalu ada di ujung paling kanan tree
+        while (current.right != null) {
+            current = current.right;
+        }
+        System.out.println("Mahasiswa dengan IPK Terbesar:");
+        current.mahasiswa.tampilInformasi();
+    }
+
+    // ==========================================
+    // TUGAS 3: Menampilkan mahasiswa dengan IPK di atas batas tertentu
+    // ==========================================
+    public void tampilMahasiswaIPKdiAtas(double ipkBatas) {
+        System.out.println("\nMahasiswa dengan IPK di atas " + ipkBatas + ":");
+        tampilIPKdiAtasHelper(root, ipkBatas);
+    }
+
+    private void tampilIPKdiAtasHelper(Node03 node, double batas) {
+        if (node != null) {
+            // Menggunakan InOrder traversal agar urut dari terkecil ke terbesar
+            tampilIPKdiAtasHelper(node.left, batas);
+            if (node.mahasiswa.ipk > batas) {
+                node.mahasiswa.tampilInformasi();
+            }
+            tampilIPKdiAtasHelper(node.right, batas);
+        }
+    }
 }
