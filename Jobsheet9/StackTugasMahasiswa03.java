@@ -57,9 +57,24 @@ public class StackTugasMahasiswa03 {
     }
 
     public void print() {
-        for (int i = 0; i <= top; i++) {
+        for (int i = top; i >= 0; i--) { // Mengubah urutan loop dari atas ke bawah
             System.out.println(stack[i].nama + "\t" + stack[i].nim + "\t" + stack[i].kelas);
             System.out.println("");
         }
+    }
+
+    // Operasi melihat tugas terbawah / pertama masuk (Pertanyaan 4)
+    public Mahasiswa03 peekBottom() {
+        if (!isEmpty()) {
+            return stack[0]; // Tugas paling awal selalu berada di indeks 0
+        } else {
+            System.out.println("Stack kosong! Tidak ada tugas yang dikumpulkan.");
+            return null;
+        }
+    }
+
+    // Operasi menghitung jumlah tugas saat ini (Pertanyaan 5)
+    public int getJumlahTugas() {
+        return top + 1; // Karena indeks dimulai dari 0, jumlah data adalah top + 1
     }
 }
