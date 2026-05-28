@@ -77,4 +77,21 @@ public class StackTugasMahasiswa03 {
     public int getJumlahTugas() {
         return top + 1; // Karena indeks dimulai dari 0, jumlah data adalah top + 1
     }
+
+    public String konversiDesimalKeBiner(int nilai) {
+        StackKonversi03 stack = new StackKonversi03();
+        while (nilai > 0) {
+            int sisa = nilai % 2;
+            stack.push(sisa);
+            nilai = nilai / 2;
+        }
+        
+        String biner = new String();
+        // Menggunakan !stack.isEmpty() agar loop berjalan selama stack TIDAK kosong
+        while (!stack.isEmpty()) { 
+            biner += stack.pop();
+        }
+        
+        return biner;
+    }
 }
